@@ -39,6 +39,7 @@ data: string;
       let suffix = this.data.substring(s2, len);
       newtext += tag + suffix;
       this.data = newtext;
+      this.showLink = false;
     }
 
 }

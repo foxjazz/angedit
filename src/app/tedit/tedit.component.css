@@ -1,4 +1,37 @@
 body{
   background-color: lightyellow;
 }
+.grid-tedit{
+  display: grid;
+  grid-template-rows: 40px 60px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.gbottom{
+  grid-column: 1 / span 6;
+  grid-row-start: 2;
+}
+.gnav1{
+  grid-column: 1/1;
+  grid-row: 1/1;
+}
 
+.gnav2{
+  grid-column: 2/2;
+  grid-row: 1/1;
+}
+.gnav3{
+  grid-column: 3/3;
+  grid-row: 1/1;
+}
+.gnav4{
+  grid-column: 4/4;
+  grid-row: 1/1;
+}
+svg {
+  fill: #4a4a4a;
+  height: 16px;
+}
+
+svg:hover {
+  fill: #08C;
+}
