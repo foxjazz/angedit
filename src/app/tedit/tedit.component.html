@@ -1,5 +1,7 @@
 
 <div>
   <button (click)="b1()">b1</button>
-  <div>{{data}}</div>
+  <button (click)="linkBtn()">link</button>
+  <div [innerHtml]=data></div>
+  <app-tlink *ngIf="showLink" (link)="onLink($event)"></app-tlink>
 </div>

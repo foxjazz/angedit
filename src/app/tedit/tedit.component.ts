@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {tlinkData} from "./Itlink";
 
 @Component({
   selector: 'app-tedit',
@@ -6,25 +7,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tedit.component.css']
 })
 export class TeditComponent implements OnInit {
-
-  constructor() { }
+  showLink: boolean;
+  constructor() { this.showLink = false; }
 data: string;
   ngOnInit(): void {
     this.data = "starting text";
   }
-  b1(){
-    if (window.getSelection) {
+    b1() {
+      if (window.getSelection) {
+        let stext = window.getSelection().toString();
+        let s1 = this.data.indexOf(stext);
+        let s2 = s1 + stext.length;
+        let len = this.data.length;
+        let newtext = this.data.substring(0, s1);
+        let suffix = this.data.substring(s2, len);
+        newtext += "<b>" + stext + "</b>" + suffix;
+        this.data = newtext;
+
+      }
+    }
+    linkBtn(){
+        this.showLink = true;
+    }
+    onLink(event: tlinkData){
+        let tag = "<a link=" + event.Url + ">" + event.displayText + "</a>";
       let stext = window.getSelection().toString();
       let s1 = this.data.indexOf(stext);
       let s2 = s1 + stext.length;
       let len = this.data.length;
       let newtext = this.data.substring(0, s1);
       let suffix = this.data.substring(s2, len);
-      newtext += "<b>" + stext + "</b>" + suffix;
+      newtext += tag + suffix;
       this.data = newtext;
-
-
-
     }
-  }
+
 }
