@@ -4,7 +4,7 @@ body{
 .grid-tedit{
   display: grid;
   grid-template-rows: 40px 60px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 20px 20px 20px 20px 20px 20px;
 }
 .gbottom{
   grid-column: 1 / span 6;
