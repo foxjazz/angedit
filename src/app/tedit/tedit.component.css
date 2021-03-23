@@ -1,6 +1,19 @@
 body{
   background-color: lightyellow;
 }
+button{
+  /*opacity: .5;*/
+  height: 20px;
+  background-color: transparent;
+  border: none;
+}
+button:active{
+  background-color: transparent;
+  border: none;
+}
+button:focus{
+  border:none;
+}
 .grid-tedit{
   display: grid;
   grid-template-rows: 40px 60px;

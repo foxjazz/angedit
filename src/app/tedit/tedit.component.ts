@@ -8,6 +8,7 @@ import {tlinkData} from "./Itlink";
 })
 export class TeditComponent implements OnInit {
   showLink: boolean;
+  selectedText: string;
   constructor() { this.showLink = false; }
 data: string;
   ngOnInit(): void {
@@ -27,19 +28,23 @@ data: string;
       }
     }
     linkBtn(){
-        this.showLink = true;
+
+      this.selectedText = window.getSelection().toString();
+      this.data = this.data.replace(this.selectedText, '');
+      this.showLink = true;
     }
     onLink(event: tlinkData){
-        let tag = "<a link=" + event.Url + ">" + event.displayText + "</a>";
-      let stext = window.getSelection().toString();
-      let s1 = this.data.indexOf(stext);
-      let s2 = s1 + stext.length;
-      let len = this.data.length;
-      let newtext = this.data.substring(0, s1);
-      let suffix = this.data.substring(s2, len);
-      newtext += tag + suffix;
-      this.data = newtext;
-      this.showLink = false;
+        let tag = '<a href=" + event.Url + ">' + event.displayText + '</a>';
+        let stext = window.getSelection().toString();
+
+        let s1 = this.data.indexOf(stext);
+        let s2 = s1 + stext.length;
+        let len = this.data.length;
+        let newtext = this.data.substring(0, s1);
+        let suffix = this.data.substring(s2, len);
+        newtext += tag + suffix;
+        this.data = newtext;
+        this.showLink = false;
     }
 
 }
